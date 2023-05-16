@@ -16,9 +16,9 @@ namespace ariel
 class Team
 {
 public:
-    vector<Character*> team;
+    vector<Character *> team;
     Character *_leader;
-    
+    Team();
     Team(Character *leader);
     ~Team();
     Team(const Team &temp);

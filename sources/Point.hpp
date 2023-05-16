@@ -17,5 +17,5 @@ public:
 
     double distance(Point point1);
     void print(Point point1);
-    Point moveTowards(Point sorce_point, Point destination_point, double distance);
+    static Point moveTowards(Point sorce_point, Point destination_point, double distance);
 };

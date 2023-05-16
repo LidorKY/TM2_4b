@@ -9,7 +9,7 @@
 #include "Team.hpp"
 #include "vector"
 using namespace std;
-
+Team::Team() {}
 Team::Team(Character *leader) : _leader(leader)
 {
     this->team.push_back(leader);
