@@ -50,21 +50,31 @@ Team &Team::operator=(const Team &other) { return *this; }
 Team::Team(Team &&other) noexcept {}
 Team &Team::operator=(Team &&other) noexcept { return *this; }
 
-vector<Character *> &Team::getTeam()
+vector<Character *> Team::getTeam()
 {
     return this->team;
 }
 
+Character &Team::getLeader()
+{
+    return *this->_leader;
+}
+
+void Team::setLeader(Character *new_laeder)
+{
+    this->_leader = new_laeder;
+}
+
 void Team::add(Character *member)
 {
-    if (member == nullptr)
+    if (member == nullptr || this->team.size() == 10)
     {
         return;
     }
-    else if (this->team.size() == 10)
-    {
-        return;
-    }
+    // else if (this->team.size() == 10)
+    // {
+    //     return;
+    // }
     else
     {
         this->team.push_back(member);
@@ -206,7 +216,7 @@ void Team::print()
 Character *Team::find_new_leader(Team *team)
 {
     double dist = DBL_MAX;
-    Character *new_leader;
+    Character *new_leader = nullptr;
     for (Character *temp : team->team)
     {
         if (temp != nullptr && temp->isAlive() == true && temp->distance(team->_leader) < dist)
@@ -221,7 +231,7 @@ Character *Team::find_new_leader(Team *team)
 Character *Team::find_victim(Team *enemy_team)
 {
     double dist = DBL_MAX;
-    Character *victim;
+    Character *victim = nullptr;
     for (Character *temp : enemy_team->team)
     {
         if (temp != nullptr && temp->isAlive() == true && temp->distance(this->_leader) < dist)

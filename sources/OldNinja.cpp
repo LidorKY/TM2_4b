@@ -18,8 +18,8 @@ OldNinja::OldNinja(string name, Point point) : Ninja(point, 150, name, 8)
     this->setPoint(point);
     this->setSpeed(8);
 }
-// OldNinja::~OldNinja() {}
-// OldNinja::OldNinja(const OldNinja &temp) {}
-// OldNinja &OldNinja::operator=(const OldNinja &other) { return *this; }
-// OldNinja::OldNinja(OldNinja &&other) noexcept {}
-// OldNinja &OldNinja::operator=(OldNinja &&other) noexcept { return *this; }
+OldNinja::~OldNinja() {}
+OldNinja::OldNinja(const OldNinja &temp) {}
+OldNinja &OldNinja::operator=(const OldNinja &other) { return *this; }
+OldNinja::OldNinja(OldNinja &&other) noexcept {}
+OldNinja &OldNinja::operator=(OldNinja &&other) noexcept { return *this; }

@@ -18,8 +18,8 @@ TrainedNinja::TrainedNinja(string name, Point point) : Ninja(point, 120, name, 1
     this->setPoint(point);
     this->setSpeed(12);
 }
-// TrainedNinja::~TrainedNinja() {}
-// TrainedNinja::TrainedNinja(const TrainedNinja &temp) {}
-// TrainedNinja &TrainedNinja::operator=(const TrainedNinja &other) { return *this; }
-// TrainedNinja::TrainedNinja(TrainedNinja &&other) noexcept {}
-// TrainedNinja &TrainedNinja::operator=(TrainedNinja &&other) noexcept { return *this; }
+TrainedNinja::~TrainedNinja() {}
+TrainedNinja::TrainedNinja(const TrainedNinja &temp) {}
+TrainedNinja &TrainedNinja::operator=(const TrainedNinja &other) { return *this; }
+TrainedNinja::TrainedNinja(TrainedNinja &&other) noexcept {}
+TrainedNinja &TrainedNinja::operator=(TrainedNinja &&other) noexcept { return *this; }

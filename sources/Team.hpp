@@ -24,11 +24,13 @@ public:
     Team(Character *leader);
     virtual ~Team();
     Team(const Team &temp);
-    Team &operator=(const Team &other);
+    virtual Team &operator=(const Team &other);
     Team(Team &&other) noexcept;
-    Team &operator=(Team &&other) noexcept;
+    virtual Team &operator=(Team &&other) noexcept;
 
-    vector<Character *> &getTeam();
+    vector<Character *> getTeam();
+    Character &getLeader();
+    void setLeader(Character *new_laeder);
 
     void add(Character *member);
     virtual void attack(Team *enemy_team);

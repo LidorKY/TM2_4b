@@ -15,11 +15,11 @@ Cowboy::Cowboy(string name, Point point) : num_of_bullets(6), Character(point, 1
     this->setName(name);
     this->num_of_bullets = 6;
 }
-// Cowboy::~Cowboy() {}
-// Cowboy::Cowboy(const Cowboy &temp) {}
-// Cowboy &Cowboy::operator=(const Cowboy &other) { return *this; }
-// Cowboy::Cowboy(Cowboy &&other) noexcept {}
-// Cowboy &Cowboy::operator=(Cowboy &&other) noexcept { return *this; }
+Cowboy::~Cowboy() {}
+Cowboy::Cowboy(const Cowboy &temp) {}
+Cowboy &Cowboy::operator=(const Cowboy &other) { return *this; }
+Cowboy::Cowboy(Cowboy &&other) noexcept {}
+Cowboy &Cowboy::operator=(Cowboy &&other) noexcept { return *this; }
 
 int Cowboy::getNumOfBullets()
 {

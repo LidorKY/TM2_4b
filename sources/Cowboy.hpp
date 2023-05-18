@@ -17,11 +17,12 @@ private:
 
 public:
     Cowboy(string name, Point point);
-    // ~Cowboy();
-    // Cowboy(const Cowboy &temp);
-    // Cowboy &operator=(const Cowboy &other);
-    // Cowboy(Cowboy &&other) noexcept;
-    // Cowboy &operator=(Cowboy &&other) noexcept;
+    ~Cowboy();
+    Cowboy(const Cowboy &temp);
+    Cowboy &operator=(const Cowboy &other);
+    Cowboy(Cowboy &&other) noexcept;
+    Cowboy &operator=(Cowboy &&other) noexcept;
+
     int getNumOfBullets();
     void setNumOfBullets(int num);
 
