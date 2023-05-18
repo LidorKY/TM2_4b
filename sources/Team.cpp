@@ -90,7 +90,7 @@ void Team::attack(Team *enemy_team)
     }
     if (this->stillAlive() == 0)
     {
-        return;
+        throw runtime_error("");
     }
     if (enemy_team->stillAlive() == 0)
     {
@@ -112,6 +112,7 @@ void Team::attack(Team *enemy_team)
                     if (victim == nullptr)
                     {
                         return;
+                        throw runtime_error("");
                     }
                     dynamic_cast<Cowboy *>(temp)->shoot(victim);
                 }
