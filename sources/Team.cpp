@@ -18,12 +18,13 @@ Team::Team(Character *leader) : _leader(leader)
     {
         return;
     }
-    // if (leader->getAssigned() == true)
-    // {
-    //     throw runtime_error("");
-    // }
+    if (leader->getAssigned() == true)
+    {
+        throw runtime_error("");
+    }
     this->team.push_back(leader);
     this->_leader = leader;
+    this->_leader->setAssigned(true);
 }
 
 Team::~Team()
@@ -71,9 +72,14 @@ void Team::add(Character *member)
     {
         throw runtime_error("");
     }
+    else if (member->getAssigned() == true)
+    {
+        throw runtime_error("");
+    }
     else
     {
         this->setTeam(member);
+        member->setAssigned(true);
     }
 }
 void Team::attack(Team *enemy_team)

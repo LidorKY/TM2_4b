@@ -13,12 +13,12 @@ Character::Character()
     this->hit_points = 0;
     this->name = "";
 }
-Character::Character(Point point1, int hit_points1, string name1) : location(point1), hit_points(hit_points1), name(name1)
+Character::Character(Point point1, int hit_points1, string name1) : location(point1), hit_points(hit_points1), name(name1), assigned_to_a_team(false)
 {
     this->location = point1;
     this->hit_points = hit_points1;
     this->name = name1;
-    // this->assigned_to_a_team = true;
+    this->assigned_to_a_team = false;
 }
 Character::~Character() {}
 Character::Character(const Character &temp)
@@ -52,15 +52,15 @@ Point Character::getLocation()
     return this->location;
 }
 
-// bool Character::getAssigned()
-// {
-//     return this->assigned_to_a_team;
-// }
+bool Character::getAssigned()
+{
+    return this->assigned_to_a_team;
+}
 
-// void Character::setAssigned(bool state)
-// {
-//     this->assigned_to_a_team = state;
-// }
+void Character::setAssigned(bool state)
+{
+    this->assigned_to_a_team = state;
+}
 
 void Character::setPoint(Point point1)
 {
