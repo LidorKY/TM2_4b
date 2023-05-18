@@ -224,7 +224,7 @@ Character *Team::find_new_leader(Team *team)
     Character *new_leader = nullptr;
     for (Character *temp : team->team)
     {
-        if (temp != nullptr && temp->isAlive() == true && temp->distance(team->_leader) < dist)
+        if (temp != nullptr && temp->isAlive() == true && temp->distance(team->_leader) <= dist)
         {
             dist = temp->distance(team->_leader);
             new_leader = temp;
@@ -239,7 +239,7 @@ Character *Team::find_victim(Team *enemy_team)
     Character *victim = nullptr;
     for (Character *temp : enemy_team->team)
     {
-        if (temp != nullptr && temp->isAlive() == true && temp->distance(this->_leader) < dist)
+        if (temp != nullptr && temp->isAlive() == true && temp->distance(this->_leader) <= dist)
         {
             dist = temp->distance(this->_leader);
             victim = temp;
