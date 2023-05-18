@@ -123,11 +123,11 @@ void Team2::print()
     {
         if (dynamic_cast<Cowboy *>(character))
         {
-            character->print();
+            dynamic_cast<Cowboy *>(character)->print();
         }
         if (dynamic_cast<Ninja *>(character))
         {
-            character->print();
+            dynamic_cast<Ninja *>(character)->print();
         }
     }
 }

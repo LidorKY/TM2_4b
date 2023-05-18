@@ -37,7 +37,15 @@ void Cowboy::shoot(Character *enemy)
     {
         return;
     }
-    else if (this->isAlive() == true && /*enemy->isAlive() == true &&*/ this->num_of_bullets > 0)
+    else if (enemy->isAlive() == false)
+    {
+        throw runtime_error("");
+    }
+    else if (this->isAlive() == false)
+    {
+        throw runtime_error("");
+    }
+    else if (this->num_of_bullets > 0)
     {
         enemy->hit(10);
         this->setNumOfBullets(this->getNumOfBullets() - 1);

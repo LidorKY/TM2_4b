@@ -53,7 +53,15 @@ void Ninja::slash(Character *enemy)
     {
         return;
     }
-    else if (this->isAlive() == true && /*enemy->isAlive() == true &&*/ this->distance(enemy) <= 1.0)
+    else if (enemy->isAlive() == false)
+    {
+        throw runtime_error("");
+    }
+    else if (this->isAlive() == false)
+    {
+        throw runtime_error("");
+    }
+    else if (this->distance(enemy) <= 1.0)
     {
         enemy->hit(this->getHP() - 40);
     }
