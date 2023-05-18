@@ -28,7 +28,7 @@ public:
     Team(Team &&other) noexcept;
     Team &operator=(Team &&other) noexcept;
 
-    vector<Character *> getTeam();
+    vector<Character *> &getTeam();
     Character &getLeader();
     void setLeader(Character *new_laeder);
 

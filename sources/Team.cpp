@@ -37,7 +37,7 @@ Team &Team::operator=(const Team &other) { return *this; }
 Team::Team(Team &&other) noexcept {}
 Team &Team::operator=(Team &&other) noexcept { return *this; }
 
-vector<Character *> Team::getTeam()
+vector<Character *> &Team::getTeam()
 {
     return this->team;
 }
@@ -172,11 +172,11 @@ void Team::attack(Team *enemy_team)
 int Team::stillAlive()
 {
     int counter_alive = 0;
-    for (unsigned long i = 0; i < this->team.size(); i++)
+    for (Character *temp : this->team)
     {
-        if (this->team.at(i) != nullptr && this->team.at(i)->isAlive() == true)
+        if (temp != nullptr && temp->isAlive() == true)
         {
-            counter_alive = counter_alive + 1;
+            counter_alive++;
         }
     }
     return counter_alive;

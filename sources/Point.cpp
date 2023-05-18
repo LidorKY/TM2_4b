@@ -48,6 +48,10 @@ void Point::print(Point point1)
 
 Point Point::moveTowards(Point sorce_point, Point destination_point, double distance)
 {
+    if (distance < 0)
+    {
+        throw invalid_argument("error");
+    }
     if (sorce_point.distance(destination_point) <= distance)
     {
         return destination_point;
