@@ -28,8 +28,12 @@ public:
     Team(Team &&other) noexcept;
     Team &operator=(Team &&other) noexcept;
 
+    vector<Character *> &getTeam();
+
     void add(Character *member);
     virtual void attack(Team *enemy_team);
     int stillAlive();
     virtual void print();
+    Character *find_new_leader(Team *team);
+    Character *find_victim(Team *enemy_team);
 };
