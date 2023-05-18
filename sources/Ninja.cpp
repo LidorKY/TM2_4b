@@ -65,7 +65,7 @@ void Ninja::slash(Character *enemy)
     {
         throw runtime_error("");
     }
-    else if (this->distance(enemy) < 1.0)
+    else if (this->distance(enemy) <= 1.0)
     {
         enemy->hit(this->getHP() - 40);
     }

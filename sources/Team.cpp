@@ -90,7 +90,7 @@ void Team::attack(Team *enemy_team)
     }
     if (this->stillAlive() == 0)
     {
-        throw runtime_error("");
+        return;
     }
     if (enemy_team->stillAlive() == 0)
     {
@@ -109,6 +109,10 @@ void Team::attack(Team *enemy_team)
             {
                 if (dynamic_cast<Cowboy *>(temp)->getNumOfBullets() > 0)
                 {
+                    if (victim == nullptr)
+                    {
+                        return;
+                    }
                     dynamic_cast<Cowboy *>(temp)->shoot(victim);
                 }
                 else
@@ -137,7 +141,7 @@ void Team::attack(Team *enemy_team)
             {
                 if (dynamic_cast<OldNinja *>(temp))
                 {
-                    if (dynamic_cast<OldNinja *>(temp)->distance(victim) < 1.0)
+                    if (dynamic_cast<OldNinja *>(temp)->distance(victim) <= 1.0)
                     {
                         dynamic_cast<OldNinja *>(temp)->slash(victim);
                     }

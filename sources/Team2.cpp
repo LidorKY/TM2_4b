@@ -26,7 +26,7 @@ void Team2::attack(Team *enemy_team)
     }
     if (this->stillAlive() == 0)
     {
-        throw runtime_error("");
+        return;
     }
     if (enemy_team->stillAlive() == 0)
     {
