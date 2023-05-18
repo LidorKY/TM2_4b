@@ -26,14 +26,7 @@ Team2::~Team2()
     {
         if (character != nullptr)
         {
-            if (dynamic_cast<Cowboy *>(character))
-            {
-                delete character;
-            }
-            if (dynamic_cast<Ninja *>(character))
-            {
-                delete character;
-            }
+            delete character;
         }
     }
 }

@@ -28,20 +28,7 @@ Team::~Team()
     {
         if (character != nullptr)
         {
-            if (dynamic_cast<Cowboy *>(character))
-            {
-                delete character;
-            }
-        }
-    }
-    for (Character *character : this->team)
-    {
-        if (character != nullptr)
-        {
-            if (dynamic_cast<Ninja *>(character))
-            {
-                delete character;
-            }
+            delete character;
         }
     }
 }
