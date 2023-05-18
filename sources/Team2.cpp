@@ -42,7 +42,7 @@ Team2 &Team2::operator=(const Team2 &other) { return *this; }
 Team2::Team2(Team2 &&other) noexcept {}
 Team2 &Team2::operator=(Team2 &&other) noexcept { return *this; }
 
-void Team2::attack(Team2 *enemy_team)
+void Team2::attack(Team *enemy_team)
 {
     if (enemy_team == nullptr)
     {

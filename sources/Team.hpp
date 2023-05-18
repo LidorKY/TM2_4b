@@ -24,9 +24,9 @@ public:
     Team(Character *leader);
     virtual ~Team();
     Team(const Team &temp);
-    virtual Team &operator=(const Team &other);
+    Team &operator=(const Team &other);
     Team(Team &&other) noexcept;
-    virtual Team &operator=(Team &&other) noexcept;
+    Team &operator=(Team &&other) noexcept;
 
     vector<Character *> getTeam();
     Character &getLeader();

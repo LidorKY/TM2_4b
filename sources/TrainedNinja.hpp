@@ -15,7 +15,7 @@ class TrainedNinja : public Ninja
 {
 public:
     TrainedNinja(string name, Point point);
-    ~TrainedNinja();
+    ~TrainedNinja() override;
     TrainedNinja(const TrainedNinja &temp);
     TrainedNinja &operator=(const TrainedNinja &other);
     TrainedNinja(TrainedNinja &&other) noexcept;

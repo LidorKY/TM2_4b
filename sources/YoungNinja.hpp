@@ -15,7 +15,7 @@ class YoungNinja : public Ninja
 {
 public:
     YoungNinja(string name, Point point);
-    ~YoungNinja();
+    ~YoungNinja() override;
     YoungNinja(const YoungNinja &temp);
     YoungNinja &operator=(const YoungNinja &other);
     YoungNinja(YoungNinja &&other) noexcept;

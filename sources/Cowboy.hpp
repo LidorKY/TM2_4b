@@ -17,7 +17,7 @@ private:
 
 public:
     Cowboy(string name, Point point);
-    ~Cowboy();
+    ~Cowboy() override;
     Cowboy(const Cowboy &temp);
     Cowboy &operator=(const Cowboy &other);
     Cowboy(Cowboy &&other) noexcept;

@@ -15,7 +15,7 @@ class OldNinja : public Ninja
 {
 public:
     OldNinja(string name, Point point);
-    ~OldNinja();
+    ~OldNinja() override;
     OldNinja(const OldNinja &temp);
     OldNinja &operator=(const OldNinja &other);
     OldNinja(OldNinja &&other) noexcept;
