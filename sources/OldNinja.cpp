@@ -13,10 +13,10 @@ using namespace std;
 
 OldNinja::OldNinja(string name, Point point) : Ninja(point, 150, name, 8)
 {
-    this->hit_points = 150;
-    this->name = name;
-    this->location = point;
-    this->speed = 8;
+    this->setHP(150);
+    this->setName(name);
+    this->setPoint(point);
+    this->setSpeed(8);
 }
 // OldNinja::~OldNinja() {}
 // OldNinja::OldNinja(const OldNinja &temp) {}

@@ -13,10 +13,10 @@ using namespace std;
 
 TrainedNinja::TrainedNinja(string name, Point point) : Ninja(point, 120, name, 12)
 {
-    this->hit_points = 120;
-    this->name = name;
-    this->location = point;
-    this->speed = 12;
+    this->setHP(120);
+    this->setName(name);
+    this->setPoint(point);
+    this->setSpeed(12);
 }
 // TrainedNinja::~TrainedNinja() {}
 // TrainedNinja::TrainedNinja(const TrainedNinja &temp) {}

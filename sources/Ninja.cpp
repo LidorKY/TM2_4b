@@ -12,16 +12,16 @@ using namespace std;
 
 Ninja::Ninja()
 {
-    this->hit_points = 0;
-    this->location = Point();
-    this->name = "";
+    this->setHP(0);
+    this->setPoint(Point());
+    this->setName("");
     this->speed = 0;
 }
 Ninja::Ninja(Point point1, int hit_points, string name, int speed1) : Character(point1, hit_points, name), speed(speed1)
 {
-    this->hit_points = hit_points;
-    this->location = point1;
-    this->name = name;
+    this->setHP(hit_points);
+    this->setPoint(point1);
+    this->setName(name);
     this->speed = speed1;
 }
 // Ninja::~Ninja() {}
@@ -29,25 +29,43 @@ Ninja::Ninja(Point point1, int hit_points, string name, int speed1) : Character(
 // Ninja &Ninja::operator=(const Ninja &other) { return *this; }
 // Ninja::Ninja(Ninja &&other) noexcept {}
 // Ninja &Ninja::operator=(Ninja &&other) noexcept { return *this; }
+int Ninja::getSpeed()
+{
+    return this->speed;
+}
+
+void Ninja::setSpeed(int num)
+{
+    this->speed = num;
+}
+
 void Ninja::move(Character *enemy)
 {
-    this->location.moveTowards(this->location, enemy->location, this->speed);
+    if (enemy == nullptr)
+    {
+        return;
+    }
+    this->getLocation().moveTowards(this->getLocation(), enemy->getLocation(), this->getSpeed());
 }
 void Ninja::slash(Character *enemy)
 {
-    if (this->isAlive() == true && enemy->isAlive() == true && this->distance(enemy) <= 1.0)
+    if (enemy == nullptr)
     {
-        enemy->hit(40);
+        return;
+    }
+    else if (this->isAlive() == true && /*enemy->isAlive() == true &&*/ this->distance(enemy) <= 1.0)
+    {
+        enemy->hit(this->getHP() - 40);
     }
 }
 string Ninja::print()
 {
     if (this->isAlive() == false)
     {
-        return "(" + this->name + ")";
+        return "(" + this->getName() + ")";
     }
     else
     {
-        return "N, name: " + this->name + ", hp: " + to_string(this->hit_points) + ", location: (" + to_string(this->location.axis_X) + "," + to_string(this->location.axis_Y) + ").";
+        return "N, name: " + this->getName() + ", hp: " + to_string(this->getHP()) + ", location: (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ").";
     }
 }

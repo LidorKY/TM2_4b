@@ -40,14 +40,27 @@ int Character::getHP()
 {
     return this->hit_points;
 }
+
+string Character::getName()
+{
+    return this->name;
+}
+
+Point Character::getLocation()
+{
+    return this->location;
+}
+
 void Character::setPoint(Point point1)
 {
     this->location = point1;
 }
+
 void Character::setHP(int hit_points1)
 {
     this->hit_points = hit_points1;
 }
+
 void Character::setName(string name1)
 {
     this->name = name1;
@@ -55,7 +68,7 @@ void Character::setName(string name1)
 
 bool Character::isAlive()
 {
-    if (this->hit_points > 0)
+    if (this->getHP() > 0)
     {
         return true;
     }
@@ -69,18 +82,12 @@ double Character::distance(Character *other)
 {
     return this->location.distance(other->location);
 }
+
 void Character::hit(int num)
 {
-    this->hit_points = this->hit_points - num;
+    this->setHP(num);
 }
-string Character::getName()
-{
-    return this->name;
-}
-Point Character::getLocation()
-{
-    return this->location;
-}
+
 string Character::print()
 {
     return "";

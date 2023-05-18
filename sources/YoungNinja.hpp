@@ -13,7 +13,6 @@ using namespace std;
 
 class YoungNinja : public Ninja
 {
-private:
 public:
     YoungNinja(string name, Point point);
     // ~YoungNinja();

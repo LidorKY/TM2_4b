@@ -10,9 +10,9 @@ using namespace std;
 
 Cowboy::Cowboy(string name, Point point) : num_of_bullets(6), Character(point, 110, name)
 {
-    this->hit_points = 110;
-    this->location = point;
-    this->name = name;
+    this->setHP(110);
+    this->setPoint(point);
+    this->setName(name);
     this->num_of_bullets = 6;
 }
 // Cowboy::~Cowboy() {}
@@ -20,17 +20,36 @@ Cowboy::Cowboy(string name, Point point) : num_of_bullets(6), Character(point, 1
 // Cowboy &Cowboy::operator=(const Cowboy &other) { return *this; }
 // Cowboy::Cowboy(Cowboy &&other) noexcept {}
 // Cowboy &Cowboy::operator=(Cowboy &&other) noexcept { return *this; }
+
+int Cowboy::getNumOfBullets()
+{
+    return this->num_of_bullets;
+}
+
+void Cowboy::setNumOfBullets(int num)
+{
+    this->num_of_bullets = num;
+}
+
 void Cowboy::shoot(Character *enemy)
 {
-    if (this->isAlive() == true && enemy->isAlive() == true && this->num_of_bullets > 0)
+    if (enemy == nullptr)
     {
-        enemy->hit_points = enemy->hit_points - 10;
-        this->num_of_bullets = this->num_of_bullets - 1;
+        return;
+    }
+    else if (this->isAlive() == true && /*enemy->isAlive() == true &&*/ this->num_of_bullets > 0)
+    {
+        enemy->hit(this->getHP() - 10);
+        this->setNumOfBullets(this->getNumOfBullets() - 1);
+    }
+    else
+    {
+        return;
     }
 }
 bool Cowboy::hasboolets()
 {
-    if (this->num_of_bullets > 0)
+    if (this->getNumOfBullets() > 0)
     {
         return true;
     }
@@ -41,16 +60,16 @@ bool Cowboy::hasboolets()
 }
 void Cowboy::reload()
 {
-    this->num_of_bullets = 6;
+    this->setNumOfBullets(6);
 }
 string Cowboy::print()
 {
     if (this->isAlive() == false)
     {
-        return "(" + this->name + ")";
+        return "(" + this->getName() + ")";
     }
     else
     {
-        return "C, name: " + this->name + ", hp: " + to_string(this->hit_points) + ", location: (" + to_string(this->location.axis_X) + "," + to_string(this->location.axis_Y) + ").";
+        return "C, name: " + this->getName() + ", hp: " + to_string(this->getHP()) + ", location: (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ").";
     }
 }
