@@ -262,6 +262,7 @@ TEST_SUITE("Battle related methods")
         CHECK(target->isAlive()); // Reloading when the magazine isn't empty shouldn't result in more than 6 bullets, the previous shoot should have no effect
         cowboy->reload();
         shoot(1);
+        // cout << target->isAlive() << endl;
         CHECK_FALSE(target->isAlive()); // Target should be dead
         delete cowboy;
         delete target;

@@ -96,7 +96,7 @@ double Character::distance(Character *other)
 
 void Character::hit(int num)
 {
-    this->setHP(num);
+    this->setHP(this->getHP() - num);
 }
 
 string Character::print()
