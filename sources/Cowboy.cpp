@@ -10,9 +10,9 @@ using namespace std;
 
 Cowboy::Cowboy(string name, Point point) : num_of_bullets(6), Character(point, 110, name)
 {
-    // this->setHP(110);
-    // this->setPoint(point);
-    // this->setName(name);
+    this->setHP(110);
+    this->setPoint(point);
+    this->setName(name);
     this->num_of_bullets = 6;
 }
 Cowboy::~Cowboy() {}

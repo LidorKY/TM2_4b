@@ -105,15 +105,10 @@ void Team::attack(Team *enemy_team)
     {
         if (temp->isAlive() == true && dynamic_cast<Cowboy *>(temp))
         {
-            if (victim->isAlive() == true)
+            if (victim != nullptr && victim->isAlive() == true)
             {
                 if (dynamic_cast<Cowboy *>(temp)->getNumOfBullets() > 0)
                 {
-                    if (victim == nullptr)
-                    {
-                        return;
-                        throw runtime_error("");
-                    }
                     dynamic_cast<Cowboy *>(temp)->shoot(victim);
                 }
                 else
@@ -138,7 +133,7 @@ void Team::attack(Team *enemy_team)
     {
         if (temp->isAlive() == true && dynamic_cast<Ninja *>(temp))
         {
-            if (victim->isAlive() == true)
+            if (victim != nullptr && victim->isAlive() == true)
             {
                 if (dynamic_cast<OldNinja *>(temp))
                 {
@@ -192,7 +187,7 @@ void Team::attack(Team *enemy_team)
 int Team::stillAlive()
 {
     int counter_alive = 0;
-    for (Character *temp : this->team)
+    for (Character *temp : this->getTeam())
     {
         if (temp != nullptr)
         {
@@ -211,14 +206,14 @@ void Team::print()
     {
         if (dynamic_cast<Cowboy *>(character))
         {
-            character->print();
+            cout << character->print() << endl;
         }
     }
     for (Character *character : this->team)
     {
         if (dynamic_cast<Ninja *>(character))
         {
-            character->print();
+            cout << character->print() << endl;
         }
     }
 }
