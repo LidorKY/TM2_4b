@@ -45,7 +45,7 @@ void Ninja::move(Character *enemy)
     {
         return;
     }
-    this->getLocation().moveTowards(this->getLocation(), enemy->getLocation(), this->getSpeed());
+    this->setPoint(this->getLocation().moveTowards(this->getLocation(), enemy->getLocation(), this->getSpeed()));
 }
 void Ninja::slash(Character *enemy)
 {

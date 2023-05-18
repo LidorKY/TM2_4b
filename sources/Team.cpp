@@ -90,11 +90,11 @@ void Team::attack(Team *enemy_team)
     }
     if (this->stillAlive() == 0)
     {
-        return;
+        throw runtime_error("");
     }
     if (enemy_team->stillAlive() == 0)
     {
-        return;
+        throw runtime_error("");
     }
     if (this->_leader->isAlive() == false)
     {
