@@ -86,7 +86,7 @@ void Team::attack(Team *enemy_team)
 {
     if (enemy_team == nullptr)
     {
-        return;
+        throw invalid_argument("");
     }
     if (this->stillAlive() == 0)
     {
@@ -137,7 +137,7 @@ void Team::attack(Team *enemy_team)
             {
                 if (dynamic_cast<OldNinja *>(temp))
                 {
-                    if (dynamic_cast<OldNinja *>(temp)->distance(victim) <= 1.0)
+                    if (dynamic_cast<OldNinja *>(temp)->distance(victim) < 1.0)
                     {
                         dynamic_cast<OldNinja *>(temp)->slash(victim);
                     }

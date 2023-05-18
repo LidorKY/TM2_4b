@@ -96,6 +96,10 @@ double Character::distance(Character *other)
 
 void Character::hit(int num)
 {
+    if (num < 0)
+    {
+        throw invalid_argument("");
+    }
     this->setHP(this->getHP() - num);
 }
 

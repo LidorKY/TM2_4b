@@ -22,7 +22,7 @@ void Team2::attack(Team *enemy_team)
 {
     if (enemy_team == nullptr)
     {
-        return;
+        throw invalid_argument("");
     }
     if (this->stillAlive() == 0)
     {
