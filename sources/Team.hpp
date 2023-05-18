@@ -31,6 +31,7 @@ public:
     vector<Character *> &getTeam();
     Character &getLeader();
     void setLeader(Character *new_laeder);
+    void setTeam(Character *new_member);
 
     void add(Character *member);
     virtual void attack(Team *enemy_team);

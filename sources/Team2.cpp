@@ -13,12 +13,7 @@ using namespace std;
 
 Team2::Team2(Character *leader)
 {
-    if (leader == nullptr)
-    {
-        return;
-    }
-    this->getTeam().push_back(leader);
-    this->setLeader(leader);
+    Team{leader};
 }
 Team2::~Team2()
 {

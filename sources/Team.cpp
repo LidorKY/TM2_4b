@@ -52,6 +52,11 @@ void Team::setLeader(Character *new_laeder)
     this->_leader = new_laeder;
 }
 
+void Team::setTeam(Character *new_member)
+{
+    this->team.push_back(new_member);
+}
+
 void Team::add(Character *member)
 {
     if (member == nullptr || this->team.size() == 10)
