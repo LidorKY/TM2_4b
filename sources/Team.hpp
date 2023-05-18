@@ -15,18 +15,21 @@ namespace ariel
 
 class Team
 {
-public:
+private:
     vector<Character *> team;
     Character *_leader;
+
+public:
     Team();
     Team(Character *leader);
-    ~Team();
+    virtual ~Team();
     Team(const Team &temp);
     Team &operator=(const Team &other);
     Team(Team &&other) noexcept;
     Team &operator=(Team &&other) noexcept;
+
     void add(Character *member);
-    void attack(Team *enemy_team);
+    virtual void attack(Team *enemy_team);
     int stillAlive();
-    void print();
+    virtual void print();
 };

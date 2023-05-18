@@ -10,50 +10,36 @@
 #include "vector"
 using namespace std;
 Team::Team() {}
+
 Team::Team(Character *leader) : _leader(leader)
 {
+    if (leader == nullptr)
+    {
+        return;
+    }
     this->team.push_back(leader);
     this->_leader = leader;
 }
+
 Team::~Team()
 {
-    for (unsigned long i = 0; i < this->team.size(); i++)
+    for (Character *character : this->team)
     {
-        if (this->team.at(i) != nullptr)
+        if (dynamic_cast<Cowboy *>(character))
         {
-            delete this->team.at(i);
+            delete character;
+        }
+    }
+    for (Character *character : this->team)
+    {
+        if (dynamic_cast<Ninja *>(character))
+        {
+            delete character;
         }
     }
 }
-Team::Team(const Team &temp)
-{
-    for (unsigned long i = 0; i < temp.team.size(); i++)
-    {
-        if (temp.team.at(i) != nullptr)
-        {
-            this->team.at(i) = temp.team.at(i);
-        }
-    }
-    if (temp._leader != nullptr)
-    {
-        this->_leader = temp._leader;
-    }
-}
-Team &Team::operator=(const Team &other)
-{
-    for (unsigned long i = 0; i < other.team.size(); i++)
-    {
-        if (other.team.at(i) != nullptr)
-        {
-            this->team.at(i) = other.team.at(i);
-        }
-    }
-    if (other._leader != nullptr)
-    {
-        this->_leader = other._leader;
-    }
-    return *this;
-}
+Team::Team(const Team &temp) {}
+Team &Team::operator=(const Team &other) {}
 Team::Team(Team &&other) noexcept {}
 Team &Team::operator=(Team &&other) noexcept { return *this; }
 
@@ -61,9 +47,11 @@ void Team::add(Character *member)
 {
     if (member == nullptr)
     {
+        return;
     }
     else if (this->team.size() == 10)
     {
+        return;
     }
     else
     {
@@ -71,6 +59,7 @@ void Team::add(Character *member)
     }
 }
 void Team::attack(Team *enemy_team) {}
+
 int Team::stillAlive()
 {
     int counter_alive = 0;
@@ -83,4 +72,21 @@ int Team::stillAlive()
     }
     return counter_alive;
 }
-void Team::print() {}
+
+void Team::print()
+{
+    for (Character *character : this->team)
+    {
+        if (dynamic_cast<Cowboy *>(character))
+        {
+            character->print();
+        }
+    }
+    for (Character *character : this->team)
+    {
+        if (dynamic_cast<Ninja *>(character))
+        {
+            character->print();
+        }
+    }
+}

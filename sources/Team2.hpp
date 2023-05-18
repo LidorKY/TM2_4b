@@ -20,7 +20,7 @@ public:
     Character *_leader;
 
     Team2(Character *leader);
-    virtual ~Team2();
+    ~Team2();
     // Team2(const Team2 &temp);
     // Team2 &operator=(const Team2 &other);
     // Team2(Team2 &&other) noexcept;
