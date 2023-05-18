@@ -53,6 +53,10 @@ void Ninja::slash(Character *enemy)
     {
         return;
     }
+    else if (this == enemy)
+    {
+        throw runtime_error("");
+    }
     else if (enemy->isAlive() == false)
     {
         throw runtime_error("");

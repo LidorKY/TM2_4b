@@ -37,6 +37,10 @@ void Cowboy::shoot(Character *enemy)
     {
         return;
     }
+    else if (this == enemy)
+    {
+        throw runtime_error("");
+    }
     else if (enemy->isAlive() == false)
     {
         throw runtime_error("");
@@ -68,6 +72,10 @@ bool Cowboy::hasboolets()
 }
 void Cowboy::reload()
 {
+    if (this->isAlive() == false)
+    {
+        throw runtime_error("");
+    }
     this->setNumOfBullets(6);
 }
 string Cowboy::print()
