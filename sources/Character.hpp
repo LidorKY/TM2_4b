@@ -11,11 +11,12 @@ using namespace std;
 
 class Character
 {
-public:
+private:
     Point location;
     int hit_points;
     string name;
 
+public:
     Character();
     Character(Point point1, int hit_points, string name);
     virtual ~Character();
@@ -23,10 +24,16 @@ public:
     Character &operator=(const Character &other);
     Character(Character &&other) noexcept;
     Character &operator=(Character &&other) noexcept;
+
+    int getHP();
+    string getName();
+    Point getLocation();
+    void setPoint(Point point1);
+    void setHP(int hit_points1);
+    void setName(string name1);
+
     bool isAlive();
     double distance(Character *other);
     void hit(int num);
-    string getName();
-    Point getLocation();
     virtual string print();
 };

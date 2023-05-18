@@ -36,6 +36,23 @@ Character &Character::operator=(const Character &other)
 Character::Character(Character &&other) noexcept {}
 Character &Character::operator=(Character &&other) noexcept { return *this; }
 
+int Character::getHP()
+{
+    return this->hit_points;
+}
+void Character::setPoint(Point point1)
+{
+    this->location = point1;
+}
+void Character::setHP(int hit_points1)
+{
+    this->hit_points = hit_points1;
+}
+void Character::setName(string name1)
+{
+    this->name = name1;
+}
+
 bool Character::isAlive()
 {
     if (this->hit_points > 0)

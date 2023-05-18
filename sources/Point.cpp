@@ -18,15 +18,32 @@ Point::Point(double x, double y) : axis_X(x), axis_Y(y)
     this->axis_Y = y;
 }
 
+double Point::getX()
+{
+    return this->axis_X;
+}
+double Point::getY()
+{
+    return this->axis_Y;
+}
+void Point::setX(double num)
+{
+    this->axis_X = num;
+}
+void Point::setY(double num)
+{
+    this->axis_Y = num;
+}
+
 double Point::distance(Point point1)
 {
-    double distance = sqrt(pow(this->axis_X - point1.axis_X, 2) + pow(this->axis_Y - point1.axis_Y, 2));
+    double distance = sqrt(pow(this->getX() - point1.getX(), 2) + pow(this->getY() - point1.getY(), 2));
     return distance;
 }
 
 void Point::print(Point point1)
 {
-    cout << "(" << this->axis_X << "," << this->axis_Y << ")";
+    cout << "(" << this->getX() << "," << this->getY() << ")";
 }
 
 Point Point::moveTowards(Point sorce_point, Point destination_point, double distance)
@@ -38,12 +55,12 @@ Point Point::moveTowards(Point sorce_point, Point destination_point, double dist
     else
     {
         // Calculate the unit vector from source to destination
-        double unitVectorX = (destination_point.axis_X - sorce_point.axis_X) / sorce_point.distance(destination_point);
-        double unitVectorY = (destination_point.axis_Y - sorce_point.axis_Y) / sorce_point.distance(destination_point);
+        double unitVectorX = (destination_point.getX() - sorce_point.getX()) / sorce_point.distance(destination_point);
+        double unitVectorY = (destination_point.getY() - sorce_point.getY()) / sorce_point.distance(destination_point);
 
         // Calculate the coordinates of the nearest point within maxDistance from source
-        double nearestX = sorce_point.axis_X + unitVectorX * sorce_point.distance(destination_point);
-        double nearestY = sorce_point.axis_Y + unitVectorY * sorce_point.distance(destination_point);
+        double nearestX = sorce_point.getX() + unitVectorX * distance;
+        double nearestY = sorce_point.getY() + unitVectorY * distance;
 
         Point nearestPoint{nearestX, nearestY};
         return nearestPoint;

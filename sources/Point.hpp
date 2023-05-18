@@ -9,11 +9,18 @@ using namespace std;
 
 class Point
 {
-public:
+private:
     double axis_X;
     double axis_Y;
+
+public:
     Point();
     Point(double num_x, double num_y);
+
+    double getX();
+    double getY();
+    void setX(double num);
+    void setY(double num);
 
     double distance(Point point1);
     void print(Point point1);
