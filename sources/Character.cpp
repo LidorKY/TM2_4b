@@ -18,6 +18,7 @@ Character::Character(Point point1, int hit_points1, string name1) : location(poi
     this->location = point1;
     this->hit_points = hit_points1;
     this->name = name1;
+    // this->assigned_to_a_team = true;
 }
 Character::~Character() {}
 Character::Character(const Character &temp)
@@ -50,6 +51,16 @@ Point Character::getLocation()
 {
     return this->location;
 }
+
+// bool Character::getAssigned()
+// {
+//     return this->assigned_to_a_team;
+// }
+
+// void Character::setAssigned(bool state)
+// {
+//     this->assigned_to_a_team = state;
+// }
 
 void Character::setPoint(Point point1)
 {

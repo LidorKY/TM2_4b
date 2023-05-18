@@ -18,6 +18,10 @@ Team::Team(Character *leader) : _leader(leader)
     {
         return;
     }
+    // if (leader->getAssigned() == true)
+    // {
+    //     throw runtime_error("");
+    // }
     this->team.push_back(leader);
     this->_leader = leader;
 }
@@ -37,14 +41,14 @@ Team &Team::operator=(const Team &other) { return *this; }
 Team::Team(Team &&other) noexcept {}
 Team &Team::operator=(Team &&other) noexcept { return *this; }
 
-vector<Character *> &Team::getTeam()
+vector<Character *> Team::getTeam()
 {
-    return this->team;
+    return (this->team);
 }
 
 Character &Team::getLeader()
 {
-    return *this->_leader;
+    return *(this->_leader);
 }
 
 void Team::setLeader(Character *new_laeder)
@@ -59,17 +63,17 @@ void Team::setTeam(Character *new_member)
 
 void Team::add(Character *member)
 {
-    if (member == nullptr || this->team.size() == 10)
+    if (member == nullptr)
     {
         return;
     }
-    // else if (this->team.size() == 10)
-    // {
-    //     return;
-    // }
+    else if (this->getTeam().size() == 10)
+    {
+        throw runtime_error("");
+    }
     else
     {
-        this->team.push_back(member);
+        this->setTeam(member);
     }
 }
 void Team::attack(Team *enemy_team)
@@ -179,9 +183,12 @@ int Team::stillAlive()
     int counter_alive = 0;
     for (Character *temp : this->team)
     {
-        if (temp != nullptr && temp->isAlive() == true)
+        if (temp != nullptr)
         {
-            counter_alive++;
+            if (temp->isAlive() == true)
+            {
+                counter_alive++;
+            }
         }
     }
     return counter_alive;

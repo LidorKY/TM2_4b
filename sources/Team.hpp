@@ -16,8 +16,8 @@ namespace ariel
 class Team
 {
 private:
-    vector<Character *> team;
     Character *_leader;
+    vector<Character *> team;
 
 public:
     Team();
@@ -28,7 +28,7 @@ public:
     Team(Team &&other) noexcept;
     Team &operator=(Team &&other) noexcept;
 
-    vector<Character *> &getTeam();
+    vector<Character *> getTeam();
     Character &getLeader();
     void setLeader(Character *new_laeder);
     void setTeam(Character *new_member);

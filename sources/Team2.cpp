@@ -11,20 +11,8 @@
 #include "vector"
 using namespace std;
 
-Team2::Team2(Character *leader)
-{
-    Team{leader};
-}
-Team2::~Team2()
-{
-    for (Character *character : this->getTeam())
-    {
-        if (character != nullptr)
-        {
-            delete character;
-        }
-    }
-}
+Team2::Team2(Character *leader) : Team(leader) {}
+Team2::~Team2() {}
 Team2::Team2(const Team2 &temp) {}
 Team2 &Team2::operator=(const Team2 &other) { return *this; }
 Team2::Team2(Team2 &&other) noexcept {}

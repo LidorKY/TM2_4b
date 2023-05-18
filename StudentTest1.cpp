@@ -167,7 +167,7 @@ TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive
         CHECK_EQ(team.stillAlive(), 1);
 
         Team2 team2{ninja};
-        // CHECK_EQ(team2.stillAlive(), 1);
+        CHECK_EQ(team2.stillAlive(), 1);
     }
 
     TEST_CASE("Team class add() and stillAlive() methods")

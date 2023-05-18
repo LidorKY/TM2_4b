@@ -15,6 +15,7 @@ private:
     Point location;
     int hit_points;
     string name;
+    // bool assigned_to_a_team;
 
 public:
     Character();
@@ -28,6 +29,8 @@ public:
     int getHP();
     string getName();
     Point getLocation();
+    // bool getAssigned();
+    // void setAssigned(bool state);
     void setPoint(Point point1);
     void setHP(int hit_points1);
     void setName(string name1);
