@@ -131,53 +131,50 @@ void Team::attack(Team *enemy_team)
     }
     for (Character *temp : this->team) // continuing the attack with ninjas.
     {
-        if (temp->isAlive() == true && dynamic_cast<Ninja *>(temp))
+        if (!victim->isAlive())
         {
-            if (victim != nullptr && victim->isAlive() == true)
+            if (enemy_team->stillAlive() == 0)
             {
-                if (dynamic_cast<OldNinja *>(temp))
-                {
-                    if (dynamic_cast<OldNinja *>(temp)->distance(victim) <= 1.0)
-                    {
-                        dynamic_cast<OldNinja *>(temp)->slash(victim);
-                    }
-                    else
-                    {
-                        dynamic_cast<OldNinja *>(temp)->move(victim);
-                    }
-                }
-                else if (dynamic_cast<TrainedNinja *>(temp))
-                {
-                    if (dynamic_cast<TrainedNinja *>(temp)->distance(victim) <= 1.0)
-                    {
-                        dynamic_cast<TrainedNinja *>(temp)->slash(victim);
-                    }
-                    else
-                    {
-                        dynamic_cast<TrainedNinja *>(temp)->move(victim);
-                    }
-                }
-                else if (dynamic_cast<YoungNinja *>(temp))
-                {
-                    if (dynamic_cast<YoungNinja *>(temp)->distance(victim) <= 1.0)
-                    {
-                        dynamic_cast<YoungNinja *>(temp)->slash(victim);
-                    }
-                    else
-                    {
-                        dynamic_cast<YoungNinja *>(temp)->move(victim);
-                    }
-                }
+                return;
             }
             else
             {
-                if (enemy_team->stillAlive() == 0)
+                victim = find_victim(enemy_team);
+            }
+        }
+        if (temp->isAlive() == true && dynamic_cast<Ninja *>(temp))
+        {
+            if (dynamic_cast<OldNinja *>(temp))
+            {
+                if (dynamic_cast<OldNinja *>(temp)->distance(victim) <= 1.0)
                 {
-                    return;
+                    dynamic_cast<OldNinja *>(temp)->slash(victim);
                 }
                 else
                 {
-                    victim = find_victim(enemy_team);
+                    dynamic_cast<OldNinja *>(temp)->move(victim);
+                }
+            }
+            else if (dynamic_cast<TrainedNinja *>(temp))
+            {
+                if (dynamic_cast<TrainedNinja *>(temp)->distance(victim) <= 1.0)
+                {
+                    dynamic_cast<TrainedNinja *>(temp)->slash(victim);
+                }
+                else
+                {
+                    dynamic_cast<TrainedNinja *>(temp)->move(victim);
+                }
+            }
+            else if (dynamic_cast<YoungNinja *>(temp))
+            {
+                if (dynamic_cast<YoungNinja *>(temp)->distance(victim) <= 1.0)
+                {
+                    dynamic_cast<YoungNinja *>(temp)->slash(victim);
+                }
+                else
+                {
+                    dynamic_cast<YoungNinja *>(temp)->move(victim);
                 }
             }
         }
