@@ -103,29 +103,26 @@ void Team::attack(Team *enemy_team)
     Character *victim = find_victim(enemy_team); // finding a victim in the enmy team
     for (Character *temp : this->team)           // starting the attack with cowboys.
     {
-        if (temp->isAlive() == true && dynamic_cast<Cowboy *>(temp))
+        if (!victim->isAlive())
         {
-            if (victim != nullptr && victim->isAlive() == true)
+            if (enemy_team->stillAlive() == 0)
             {
-                if (dynamic_cast<Cowboy *>(temp)->getNumOfBullets() > 0)
-                {
-                    dynamic_cast<Cowboy *>(temp)->shoot(victim);
-                }
-                else
-                {
-                    dynamic_cast<Cowboy *>(temp)->reload();
-                }
+                return;
             }
             else
             {
-                if (enemy_team->stillAlive() == 0)
-                {
-                    return;
-                }
-                else
-                {
-                    victim = find_victim(enemy_team);
-                }
+                victim = find_victim(enemy_team);
+            }
+        }
+        if (temp->isAlive() == true && dynamic_cast<Cowboy *>(temp))
+        {
+            if (dynamic_cast<Cowboy *>(temp)->getNumOfBullets() > 0)
+            {
+                dynamic_cast<Cowboy *>(temp)->shoot(victim);
+            }
+            else
+            {
+                dynamic_cast<Cowboy *>(temp)->reload();
             }
         }
     }
