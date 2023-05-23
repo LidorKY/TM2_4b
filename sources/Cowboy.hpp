@@ -16,6 +16,7 @@ private:
     int num_of_bullets;
 
 public:
+    /*constructor*/
     Cowboy(string name, Point point);
     ~Cowboy() override;
     Cowboy(const Cowboy &temp);
@@ -23,9 +24,11 @@ public:
     Cowboy(Cowboy &&other) noexcept;
     Cowboy &operator=(Cowboy &&other) noexcept;
 
+    /*getteres and setteres*/
     int getNumOfBullets();
     void setNumOfBullets(int num);
 
+    /*functions*/
     void shoot(Character *enemy);
     bool hasboolets();
     void reload();

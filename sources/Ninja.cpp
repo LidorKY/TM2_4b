@@ -10,7 +10,7 @@
 #include "string"
 using namespace std;
 
-Ninja::Ninja()
+Ninja::Ninja() // default
 {
     this->setHP(0);
     this->setPoint(Point());
@@ -24,11 +24,13 @@ Ninja::Ninja(Point point1, int hit_points, string name, int speed1) : Character(
     this->setName(name);
     this->speed = speed1;
 }
-// Ninja::~Ninja() {}
-// Ninja::Ninja(const Ninja &temp) {}
-// Ninja &Ninja::operator=(const Ninja &other) { return *this; }
-// Ninja::Ninja(Ninja &&other) noexcept {}
-// Ninja &Ninja::operator=(Ninja &&other) noexcept { return *this; }
+
+Ninja::~Ninja() {}
+Ninja::Ninja(const Ninja &temp) {}
+Ninja &Ninja::operator=(const Ninja &other) { return *this; }
+Ninja::Ninja(Ninja &&other) noexcept {}
+Ninja &Ninja::operator=(Ninja &&other) noexcept { return *this; }
+
 int Ninja::getSpeed()
 {
     return this->speed;
@@ -47,6 +49,7 @@ void Ninja::move(Character *enemy)
     }
     this->setPoint(this->getLocation().moveTowards(this->getLocation(), enemy->getLocation(), this->getSpeed()));
 }
+
 void Ninja::slash(Character *enemy)
 {
     if (enemy == nullptr)
@@ -70,6 +73,7 @@ void Ninja::slash(Character *enemy)
         enemy->hit(40);
     }
 }
+
 string Ninja::print()
 {
     if (this->isAlive() == false)

@@ -14,6 +14,7 @@ using namespace std;
 class OldNinja : public Ninja
 {
 public:
+    /*constructor*/
     OldNinja(string name, Point point);
     ~OldNinja() override;
     OldNinja(const OldNinja &temp);

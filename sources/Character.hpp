@@ -18,14 +18,18 @@ private:
     bool assigned_to_a_team;
 
 public:
+    /*constructors*/
     Character();
     Character(Point point1, int hit_points, string name);
+
+    /*destructor + copy_ctr + operator=*/
     virtual ~Character();
     Character(const Character &temp);
     Character &operator=(const Character &other);
     Character(Character &&other) noexcept;
     Character &operator=(Character &&other) noexcept;
 
+    /*getteres and setteres.*/
     int getHP();
     string getName();
     Point getLocation();
@@ -35,6 +39,7 @@ public:
     void setHP(int hit_points1);
     void setName(string name1);
 
+    /*functions*/
     bool isAlive();
     double distance(Character *other);
     void hit(int num);

@@ -7,7 +7,7 @@
 #include "Character.hpp"
 using namespace std;
 
-Character::Character()
+Character::Character() // default
 {
     this->location = Point(0.0, 0.0);
     this->hit_points = 0;
@@ -21,19 +21,8 @@ Character::Character(Point point1, int hit_points1, string name1) : location(poi
     this->assigned_to_a_team = false;
 }
 Character::~Character() {}
-Character::Character(const Character &temp)
-{
-    this->location = temp.location;
-    this->hit_points = temp.hit_points;
-    this->name = temp.name;
-}
-Character &Character::operator=(const Character &other)
-{
-    this->location = other.location;
-    this->hit_points = other.hit_points;
-    this->name = other.name;
-    return *this;
-}
+Character::Character(const Character &temp) {}
+Character &Character::operator=(const Character &other) { return *this; }
 Character::Character(Character &&other) noexcept {}
 Character &Character::operator=(Character &&other) noexcept { return *this; }
 
@@ -105,5 +94,5 @@ void Character::hit(int num)
 
 string Character::print()
 {
-    return "";
+    return ""; // since it is a virtual method and not pure virtual.
 }

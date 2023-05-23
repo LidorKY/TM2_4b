@@ -14,6 +14,7 @@ using namespace std;
 class TrainedNinja : public Ninja
 {
 public:
+    /*constructor*/
     TrainedNinja(string name, Point point);
     ~TrainedNinja() override;
     TrainedNinja(const TrainedNinja &temp);
