@@ -98,14 +98,14 @@ void Team::attack(Team *enemy_team)
     }
     if (this->_leader->isAlive() == false)
     {
-        this->_leader = find_new_leader(this); // finding new leader for the attacking team
+        this->_leader = find_new_leader(this); // finding new leader.
     }
     Character *victim = find_victim(enemy_team); // finding a victim in the enmy team
     for (Character *temp : this->team)           // starting the attack with cowboys.
     {
-        if (!victim->isAlive())
+        if (!victim->isAlive()) // check if the victim is allive
         {
-            if (enemy_team->stillAlive() == 0)
+            if (enemy_team->stillAlive() == 0) // check if there is anyone alive.
             {
                 return;
             }
@@ -114,13 +114,13 @@ void Team::attack(Team *enemy_team)
                 victim = find_victim(enemy_team);
             }
         }
-        if (temp->isAlive() == true && dynamic_cast<Cowboy *>(temp))
+        if (temp->isAlive() == true && dynamic_cast<Cowboy *>(temp)) // running inly on cowboys.
         {
-            if (dynamic_cast<Cowboy *>(temp)->getNumOfBullets() > 0)
+            if (dynamic_cast<Cowboy *>(temp)->getNumOfBullets() > 0) // if you have bullets -> shoot
             {
                 dynamic_cast<Cowboy *>(temp)->shoot(victim);
             }
-            else
+            else // otherwise, reload.
             {
                 dynamic_cast<Cowboy *>(temp)->reload();
             }
@@ -178,7 +178,7 @@ void Team::attack(Team *enemy_team)
     }
 }
 
-int Team::stillAlive()
+int Team::stillAlive() // return the number of alive members in the team
 {
     int counter_alive = 0;
     for (Character *temp : this->getTeam())
@@ -214,11 +214,11 @@ void Team::print()
 
 Character *Team::find_new_leader(Team *team)
 {
-    double dist = DBL_MAX;
-    Character *new_leader = nullptr;
+    double dist = DBL_MAX;           // defined dsitance as max
+    Character *new_leader = nullptr; // pointer
     for (Character *temp : team->team)
     {
-        if (temp != nullptr && temp->isAlive() == true && temp->distance(team->_leader) <= dist)
+        if (temp != nullptr && temp->isAlive() == true && temp->distance(team->_leader) <= dist) // looking for the nearest member that still alive to the leader
         {
             dist = temp->distance(team->_leader);
             new_leader = temp;
@@ -227,7 +227,7 @@ Character *Team::find_new_leader(Team *team)
     return new_leader;
 }
 
-Character *Team::find_victim(Team *enemy_team)
+Character *Team::find_victim(Team *enemy_team) // the same as the function above
 {
     double dist = DBL_MAX;
     Character *victim = nullptr;
